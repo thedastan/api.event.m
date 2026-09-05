@@ -92,6 +92,34 @@ def composite_logo(image_bytes, logo_path):
     return out.getvalue()
 
 
+def apply_watermark(image_bytes, text='EVENT M'):
+    """Stamp a subtle, semi-transparent Event M wordmark on a finished slide.
+
+    The brief asked for one consistent brand element on every slide. A light
+    bottom-right wordmark reads as a watermark without fighting the artwork, and
+    is drawn (not generated) so the brand name is always spelled correctly.
+    """
+    try:
+        base = Image.open(io.BytesIO(image_bytes)).convert('RGBA')
+    except Exception:  # noqa: BLE001 - a bad slide must never fail the run
+        return image_bytes
+
+    overlay = Image.new('RGBA', base.size, (0, 0, 0, 0))
+    draw = ImageDraw.Draw(overlay)
+    font = _font(FONT_BOLD, max(24, int(base.height * 0.033)))
+    tw, th = _text_size(draw, text, font)
+    margin = int(base.height * 0.04)
+    x, y = base.width - tw - margin, base.height - th - margin
+
+    # soft shadow first so the mark stays legible on both light and dark art
+    draw.text((x + 2, y + 2), text, font=font, fill=(0, 0, 0, 70))
+    draw.text((x, y), text, font=font, fill=(255, 255, 255, 140))
+
+    out = io.BytesIO()
+    Image.alpha_composite(base, overlay).convert('RGB').save(out, format='PNG')
+    return out.getvalue()
+
+
 def render_closing_slide(year=None):
     """Event M's fixed thank-you slide: lime panel, headline, contacts strip."""
     year = year or datetime.date.today().year

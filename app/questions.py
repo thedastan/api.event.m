@@ -19,8 +19,12 @@ def _opt(value, label, hint):
     return {'value': value, 'label': label, 'hint': hint}
 
 
-def _free(key, kind, title, subtitle, placeholder='', required=True):
-    """A free-input question (text/date) with no fixed options."""
+def _free(key, kind, title, subtitle, placeholder='', required=True, max_len=120):
+    """A free-input question (text/date) with no fixed options.
+
+    ``max_len`` caps the accepted length: a one-line name stays short, while a
+    free-form brief needs room to breathe.
+    """
     return {
         'key': key,
         'type': kind,
@@ -29,6 +33,7 @@ def _free(key, kind, title, subtitle, placeholder='', required=True):
         'subtitle': subtitle,
         'placeholder': placeholder,
         'required': required,
+        'max_len': max_len,
         'options': [],
     }
 
@@ -202,6 +207,52 @@ QUESTIONS = [
             _opt('outdoor', 'На улице', 'an open-air outdoor setting with sky and environment visible'),
         ],
     },
+    # ── budget, requested services and free notes: help the deck match the
+    #    client's real scope and let them describe anything the fixed
+    #    questions miss (a custom brief / ТЗ). All optional.
+    {
+        'key': 'budget',
+        'type': SINGLE,
+        'max_choices': 1,
+        'title': 'Какой бюджет?',
+        'subtitle': 'Поможет подобрать формат',
+        'required': False,
+        'options': [
+            _opt('b_500k', 'До 500 тыс сом',
+                 'a modest production budget; keep staging lean, clean and focused'),
+            _opt('b_500k_1m', '500 тыс – 1 млн сом',
+                 'a mid-range production budget; solid, tasteful staging'),
+            _opt('b_1m_3m', '1 – 3 млн сом',
+                 'a substantial production budget; polished, high-production-value staging'),
+            _opt('b_3m_plus', 'От 3 млн сом',
+                 'a premium, no-expense-spared budget; lavish, large-scale staging'),
+            _opt('b_undecided', 'Пока не определились', ''),
+        ],
+    },
+    {
+        'key': 'services',
+        'type': MULTI,
+        'max_choices': 9,
+        'title': 'Что нужно организовать?',
+        'subtitle': 'Выберите всё, что актуально',
+        'required': False,
+        'options': [
+            _opt('venue', 'Площадка', 'a prepared event venue space'),
+            _opt('catering', 'Кейтеринг', 'catering and food service stations'),
+            _opt('decor', 'Декор', 'styled decor and floral / prop design'),
+            _opt('program', 'Программа', 'a staged show program with performances'),
+            _opt('tech', 'Техника', 'professional stage technology: lighting, sound and LED screens'),
+            _opt('host', 'Ведущий', 'a host / MC presenting on stage'),
+            _opt('media', 'Фото / видео', 'photo and video coverage of the event'),
+            _opt('transfer', 'Трансфер', 'guest transfer and logistics'),
+            _opt('interpreter', 'Переводчик', 'simultaneous interpretation for guests'),
+        ],
+    },
+    _free('notes', TEXT,
+          'Хотите добавить что-то от себя?',
+          'Пожелания, особые требования или своё ТЗ',
+          placeholder='Например: нужен национальный колорит, приезд артиста, показ ролика…',
+          required=False, max_len=600),
 ]
 
 QUESTIONS_BY_KEY = {q['key']: q for q in QUESTIONS}

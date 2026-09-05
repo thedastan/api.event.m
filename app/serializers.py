@@ -36,10 +36,11 @@ class AnswersField(serializers.Field):
             value = data[key]
 
             if question['type'] in (questions.TEXT, questions.DATE):
+                max_len = question.get('max_len', 120)
                 if not isinstance(value, str):
                     errors[key] = 'Expected a text value.'
-                elif len(value.strip()) > 120:
-                    errors[key] = 'Keep it under 120 characters.'
+                elif len(value.strip()) > max_len:
+                    errors[key] = f'Keep it under {max_len} characters.'
                 elif not value.strip() and required:
                     errors[key] = 'This question is required.'
                 elif value.strip():
