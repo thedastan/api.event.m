@@ -1,123 +1,125 @@
 {
   "slide": {
-    "type": "grid_card_showcase_slide",
+    "type": "numbered_title_bullets_image_with_bottom_subcategory_row_slide",
     "aspect_ratio": "16:9",
     "layout": {
-      "description": "logo_top_left_title_below_intro_paragraph_then_2x3_grid_of_icon_cards_each_with_image",
+      "description": "numbered_two_line_title_top_left_category_subtitle_bullet_list_left_large_panoramic_image_top_right_three_equal_subcategory_cards_bottom_row",
       "columns": 3,
       "rows": 2
     },
     "style": {
-      "background": "warm_off_white",
-      "overall_style": "elegant_corporate_editorial",
+      "background": "light_neutral_with_thick_dark_outer_border",
+      "overall_style": "ethnic_heritage_editorial",
       "alignment": "left"
     },
     "elements": [
       {
         "id": "el_1",
-        "type": "logo",
-        "role": "brand_logo_top_left",
-        "position": { "x": 2, "y": 2, "width": 16, "height": 7 },
-        "content": "company logo mark with wordmark and small tagline beneath",
-        "typography": { "size": "small", "weight": "regular", "alignment": "left" },
-        "style": { "color": "mixed_dark_and_accent" }
+        "type": "title",
+        "role": "numbered_main_slide_title",
+        "position": { "x": 4, "y": 6, "width": 32, "height": 16 },
+        "content": "numbered two-line section title, short bold heading",
+        "typography": { "size": "xlarge", "weight": "bold", "alignment": "left", "style": "serif" },
+        "style": { "color": "dark" }
       },
       {
         "id": "el_2",
-        "type": "title",
-        "role": "main_slide_title",
-        "position": { "x": 2, "y": 10, "width": 96, "height": 10 },
-        "content": "large bold main section title, letter-spaced",
-        "typography": { "size": "xlarge", "weight": "bold", "alignment": "left", "style": "serif" },
+        "type": "subtitle",
+        "role": "category_label_row",
+        "position": { "x": 4, "y": 24, "width": 32, "height": 5 },
+        "content": "row of 2-4 short category labels separated by dot bullets",
+        "typography": { "size": "small", "weight": "medium", "alignment": "left", "style": "sans-serif", "letter_spacing": "wide" },
         "style": { "color": "dark" }
       },
       {
         "id": "el_3",
         "type": "divider",
-        "role": "title_underline_with_center_mark",
-        "position": { "x": 2, "y": 20, "width": 96, "height": 2 },
-        "content": "full-width thin horizontal rule with small centered symbol",
+        "role": "section_separator_with_accent_mark",
+        "position": { "x": 4, "y": 30, "width": 24, "height": 1 },
+        "content": "thin horizontal rule with small centered diamond accent",
         "style": { "color": "accent", "thickness": "hairline" }
       },
       {
         "id": "el_4",
-        "type": "text_block",
-        "role": "intro_descriptive_paragraph",
-        "position": { "x": 2, "y": 23, "width": 55, "height": 6 },
-        "content": "short two-line introductory paragraph explaining the slide's purpose",
-        "typography": { "size": "medium", "weight": "regular", "alignment": "left" },
-        "style": { "color": "dark" }
+        "type": "bullet_list",
+        "role": "supporting_key_points",
+        "position": { "x": 4, "y": 36, "width": 30, "height": 32 },
+        "content": "4 bullet points, each with small icon marker, two-line entries, generous vertical spacing",
+        "typography": { "size": "small", "weight": "medium", "alignment": "left" },
+        "style": { "color": "dark", "marker_style": "small_diamond_icon", "accent_color": "muted_red" }
       },
       {
         "id": "el_5",
-        "type": "card",
-        "role": "channel_card_1",
-        "position": { "x": 2, "y": 30, "width": 31, "height": 30 },
-        "content": "card with icon badge, numbered title, short description, and supporting image mockup below",
-        "typography": { "size": "small", "weight": "regular", "alignment": "left" },
-        "style": { "color": "dark", "background": "white", "border_radius": "medium", "border": "thin_light" }
+        "type": "image",
+        "role": "main_visual",
+        "position": { "x": 32, "y": 3, "width": 66, "height": 62 },
+        "content": "main visual related to the slide topic, wide panoramic scene fading into background on the left edge",
+        "style": {
+          "shape": "rectangle_full_bleed",
+          "border_radius": "none",
+          "border": "none",
+          "background_or_block": "background_bleed",
+          "edge_treatment": "left_edge_faded_gradient_into_page_background"
+        }
       },
       {
         "id": "el_6",
-        "type": "card",
-        "role": "channel_card_2",
-        "position": { "x": 35, "y": 30, "width": 31, "height": 30 },
-        "content": "card with icon badge, numbered title, short description, and supporting image mockup below (browser/website style)",
-        "typography": { "size": "small", "weight": "regular", "alignment": "left" },
-        "style": { "color": "dark", "background": "white", "border_radius": "medium", "border": "thin_light" }
+        "type": "divider",
+        "role": "section_separator_above_subcategory_row",
+        "position": { "x": 4, "y": 70, "width": 92, "height": 1 },
+        "content": "thin full-width horizontal rule separating upper content from bottom row",
+        "style": { "color": "accent", "thickness": "hairline" }
       },
       {
         "id": "el_7",
         "type": "card",
-        "role": "channel_card_3",
-        "position": { "x": 68, "y": 30, "width": 31, "height": 30 },
-        "content": "card with icon badge, numbered title, short description, and supporting image mockup below (outdoor screen style)",
-        "typography": { "size": "small", "weight": "regular", "alignment": "left" },
-        "style": { "color": "dark", "background": "white", "border_radius": "medium", "border": "thin_light" }
+        "role": "subcategory_card_1",
+        "position": { "x": 4, "y": 74, "width": 28, "height": 24 },
+        "content": "icon badge with title and short subtitle label at top, supporting image below",
+        "typography": { "size": "medium", "weight": "semibold", "alignment": "left" },
+        "style": { "color": "dark" }
       },
       {
         "id": "el_8",
-        "type": "card",
-        "role": "channel_card_4",
-        "position": { "x": 2, "y": 62, "width": 31, "height": 30 },
-        "content": "card with icon badge, numbered title, short description, and supporting image mockup below (phone-in-hand style)",
-        "typography": { "size": "small", "weight": "regular", "alignment": "left" },
-        "style": { "color": "dark", "background": "white", "border_radius": "medium", "border": "thin_light" }
+        "type": "divider",
+        "role": "vertical_separator_1",
+        "position": { "x": 34, "y": 74, "width": 1, "height": 24 },
+        "content": "thin vertical hairline separating subcategory cards",
+        "style": { "color": "accent", "thickness": "hairline" }
       },
       {
         "id": "el_9",
         "type": "card",
-        "role": "channel_card_5",
-        "position": { "x": 35, "y": 62, "width": 31, "height": 30 },
-        "content": "card with icon badge, numbered title, short description, and supporting image mockup below (invitation card style)",
-        "typography": { "size": "small", "weight": "regular", "alignment": "left" },
-        "style": { "color": "dark", "background": "white", "border_radius": "medium", "border": "thin_light" }
+        "role": "subcategory_card_2",
+        "position": { "x": 36, "y": 74, "width": 28, "height": 24 },
+        "content": "icon badge with title and short subtitle label at top, supporting image below",
+        "typography": { "size": "medium", "weight": "semibold", "alignment": "left" },
+        "style": { "color": "dark" }
       },
       {
         "id": "el_10",
-        "type": "card",
-        "role": "channel_card_6",
-        "position": { "x": 68, "y": 62, "width": 31, "height": 30 },
-        "content": "card with icon badge, numbered title, short description, and supporting image mockup below (multi-phone social media UI style)",
-        "typography": { "size": "small", "weight": "regular", "alignment": "left" },
-        "style": { "color": "dark", "background": "white", "border_radius": "medium", "border": "thin_light" }
-      },
-      {
-        "id": "el_11",
         "type": "divider",
-        "role": "footer_separator",
-        "position": { "x": 2, "y": 94, "width": 96, "height": 1 },
-        "content": "thin full-width horizontal rule above footer",
+        "role": "vertical_separator_2",
+        "position": { "x": 66, "y": 74, "width": 1, "height": 24 },
+        "content": "thin vertical hairline separating subcategory cards",
         "style": { "color": "accent", "thickness": "hairline" }
       },
       {
-        "id": "el_12",
-        "type": "footer",
-        "role": "footer_tagline_and_page_number",
-        "position": { "x": 2, "y": 96, "width": 96, "height": 4 },
-        "content": "small icon plus tagline text on the left, page number on the right",
-        "typography": { "size": "xsmall", "weight": "regular", "alignment": "left" },
+        "id": "el_11",
+        "type": "card",
+        "role": "subcategory_card_3",
+        "position": { "x": 68, "y": 74, "width": 28, "height": 24 },
+        "content": "icon badge with title and short subtitle label at top, supporting image below",
+        "typography": { "size": "medium", "weight": "semibold", "alignment": "left" },
         "style": { "color": "dark" }
+      },
+      {
+        "id": "el_12",
+        "type": "divider",
+        "role": "footer_separator",
+        "position": { "x": 4, "y": 98, "width": 92, "height": 1 },
+        "content": "thin full-width horizontal rule at bottom of slide",
+        "style": { "color": "accent", "thickness": "hairline" }
       }
     ]
   }
