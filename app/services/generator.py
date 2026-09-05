@@ -82,6 +82,8 @@ def run_generation(generation_id):
             )
             if logo_path:
                 image_bytes = branding.composite_logo(image_bytes, logo_path)
+            # one consistent Event M brand mark on every content slide
+            image_bytes = branding.apply_watermark(image_bytes)
             image = GeneratedImage(
                 generation=generation,
                 page=page,

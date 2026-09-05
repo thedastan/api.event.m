@@ -32,6 +32,8 @@ def build_brief(answers):
     time_of_day = _hints(answers, 'time_of_day')
     venue = _hints(answers, 'venue')
 
+    budget = _hints(answers, 'budget')
+
     return {
         'event_type': event_type[0] if event_type else 'a corporate event',
         'goals': _hints(answers, 'goals'),
@@ -45,6 +47,10 @@ def build_brief(answers):
         'audience': _hints(answers, 'audience'),
         'time_of_day': time_of_day[0] if time_of_day else '',
         'venue': venue[0] if venue else '',
+        # scope: budget tier, requested services, and the client's own notes
+        'budget': budget[0] if budget else '',
+        'services': _hints(answers, 'services'),
+        'notes': (answers.get('notes') or '').strip(),
         'labels': {key: _labels(answers, key) for key in questions.QUESTIONS_BY_KEY},
     }
 
@@ -74,5 +80,17 @@ def brief_as_text(brief):
     if brief['brand_attributes']:
         lines.append(
             f"The brand must read as: {', '.join(brief['brand_attributes'])}."
+        )
+    if brief.get('services'):
+        lines.append(
+            f"The event includes: {', '.join(brief['services'])}; "
+            f"reflect these where they naturally show in the scene."
+        )
+    if brief.get('budget'):
+        lines.append(f"Production scale: {brief['budget']}.")
+    if brief.get('notes'):
+        lines.append(
+            f"Additional client notes (in the client's own words, honour them): "
+            f"{brief['notes']}"
         )
     return '\n'.join(lines)
